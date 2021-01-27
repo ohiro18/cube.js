@@ -558,7 +558,7 @@ export class CubejsServerCore {
     return scheduler.runScheduledRefresh(context, queryingOptions);
   }
 
-  public async getDriver(ctx: DriverContext) {
+  public async getDriver(ctx: DriverContext): Promise<BaseDriver> {
     if (!this.driver) {
       const driver = this.options.driverFactory(ctx);
       await driver.testConnection(); // TODO mutex
